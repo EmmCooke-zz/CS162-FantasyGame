@@ -11,14 +11,15 @@
 class HarryPotter :
 	public Character
 {
+private:
+	bool hogwarts = true;
 public:
 	// Default Constructor
 	HarryPotter();
 	// Destructor
 	~HarryPotter();
 
-	// Virtual functions overriden from Character
-	virtual int attack();
+	// Virtual function overriden from Character
 	virtual bool defend(int damageIn);
 };
 

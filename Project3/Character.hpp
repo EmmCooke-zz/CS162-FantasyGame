@@ -42,8 +42,8 @@ public:
 	void setStrength(int strengthIn) { strength = strengthIn; }
 
 	// Virual functions to be overriden
-	virtual int attack() = 0;
-	virtual bool defend(int damageIn) = 0;
+	virtual int attack();
+	virtual bool defend(int damageIn);
 };
 
 #endif

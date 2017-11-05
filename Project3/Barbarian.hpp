@@ -16,10 +16,6 @@ public:
 	Barbarian();
 	// Destructor
 	~Barbarian();
-
-	// Virtual functions overriden from Character
-	virtual int attack();
-	virtual bool defend(int damageIn);
 };
 
 #endif

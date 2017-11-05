@@ -53,19 +53,3 @@ int Medusa::attack()
 	}
 	return attackRoll;
 }
-
-/*************************************************
-* Description: Medusa's defend function. Returns
-* true if the defender survives and false if they
-* die.
-*************************************************/
-bool Medusa::defend(int damageIn)
-{
-	damageIn -= getArmor();
-	setStrength(getStrength() - damageIn);
-	if (getStrength() < 1)
-	{
-		return false;
-	}
-	return true;
-}

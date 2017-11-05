@@ -31,35 +31,3 @@ Barbarian::Barbarian()
 Barbarian::~Barbarian()
 {
 }
-
-/*************************************************
-* Description: Barbarian's attack function. The
-* attackRoll variable is incremented until the 
-* corrent number of rolls has taken place. This value
-* is then returned.
-*************************************************/
-int Barbarian::attack()
-{
-	int attackRoll = 0;
-	for (int i = 0; i < getNumAttackDie(); i++)
-	{
-		attackRoll += rand() % getDieSides() + 1;
-	}
-	return attackRoll;
-}
-
-/*************************************************
-* Description: Barbarian's defend function. Returns
-* true if the defender survives and false if they
-* die.
-*************************************************/
-bool Barbarian::defend(int damageIn)
-{
-	damageIn -= getArmor();
-	setStrength(getStrength() - damageIn);
-	if (getStrength() < 1)
-	{
-		return false;
-	}
-	return true;
-}

@@ -17,9 +17,8 @@ public:
 	// Destructor
 	~Medusa();
 
-	// Virtual functions overriden from Character
+	// Virtual function overriden from Character
 	virtual int attack();
-	virtual bool defend(int damageIn);
 };
 
 #endif

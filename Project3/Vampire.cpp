@@ -33,22 +33,6 @@ Vampire::~Vampire()
 }
 
 /*************************************************
-* Description: Vampire's attack function. The
-* attackRoll variable is incremented until the 
-* corrent number of rolls has taken place. This value
-* is then returned.
-*************************************************/
-int Vampire::attack()
-{
-	int attackRoll = 0;
-	for (int i = 0; i < getNumAttackDie(); i++)
-	{
-		attackRoll += rand() % getDieSides() + 1;
-	}
-	return attackRoll;
-}
-
-/*************************************************
 * Description: Vampire's defend function. Vampire's
 * special ability charm is built into the function.
 * There is a 50% chance that no damage is done

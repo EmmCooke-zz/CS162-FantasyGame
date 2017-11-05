@@ -33,39 +33,20 @@ HarryPotter::~HarryPotter()
 }
 
 /*************************************************
-* Description: HarryPotter's attack function. The
-* attackRoll variable is incremented until the 
-* corrent number of rolls has taken place. This value
-* is then returned.
-*************************************************/
-int HarryPotter::attack()
-{
-	int attackRoll = 0;
-	for (int i = 0; i < getNumAttackDie(); i++)
-	{
-		attackRoll += rand() % getDieSides() + 1;
-	}
-	return attackRoll;
-}
-
-/*************************************************
 * Description: HarryPotter's defend function. Returns
 * true if the defender survives and false if they
 * die.
 *************************************************/
 bool HarryPotter::defend(int damageIn)
 {
-	// Harry Potter's special ability
-	// Turns to false when he first dies
-	static bool Hogwarts = true;
-
 	damageIn -= getArmor();
 	setStrength(getStrength() - damageIn);
 	if (getStrength() < 1)
 	{	// Harry's special ability
-		if (Hogwarts)
+		if (hogwarts)
 		{
 			setStrength(20);
+			hogwarts = false;
 			return true;
 		}
 		return false;
