@@ -5,12 +5,15 @@
 * for the functions declared in the Medusa class.
 *************************************************/
 #include "Medusa.hpp"
+#include <iostream>
 
 /*************************************************
 * Description: Default Constructor.
 *************************************************/
 Medusa::Medusa()
 {
+	name = "Medusa";
+
 	// Attack Die
 	setNumAttackDie(2);
 	setDieSides(6);
@@ -52,4 +55,12 @@ int Medusa::attack()
 		}
 	}
 	return attackRoll;
+}
+
+/*************************************************
+* Description: Returns the classes name.
+*************************************************/
+string Medusa::getName()
+{
+	return name;
 }

@@ -19,8 +19,11 @@ public:
 	// Destructor
 	~HarryPotter();
 
+	// Pure virtual function from Character
+	virtual string getName();
+
 	// Virtual function overriden from Character
-	virtual bool defend(int damageIn);
+	virtual void reduceStrength(int damageIn);
 };
 
 #endif

@@ -17,6 +17,9 @@ public:
 	// Destructor
 	~Medusa();
 
+	// Pure virtual function from Character
+	virtual string getName();
+
 	// Virtual function overriden from Character
 	virtual int attack();
 };

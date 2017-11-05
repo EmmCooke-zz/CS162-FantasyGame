@@ -36,16 +36,35 @@ int Character::attack()
 	return attackRoll;
 }
 
+/*************************************************
+* Description: Returns the classes name.
+*************************************************/
+void Character::reduceStrength(int damageIn)
+{
+	damageIn -= getArmor();
+	setStrength(getStrength() - damageIn);
+}
 
 /*************************************************
 * Description: Default defend function. Returns
 * true if the defender survives and false if they
 * die.
 *************************************************/
-bool Character::defend(int damageIn)
+int Character::defend()
 {
-	damageIn -= getArmor();
-	setStrength(getStrength() - damageIn);
+	int defendRoll = 0; 
+	for (int i = 0; i < getNumDefenseDie(); i++)
+	{
+		defendRoll += rand() % 6 + 1;
+	}
+	return defendRoll;
+}
+
+/*************************************************
+* Description: Returns the classes name.
+*************************************************/
+bool Character::alive()
+{
 	if (getStrength() < 1)
 	{
 		return false;

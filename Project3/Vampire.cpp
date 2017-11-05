@@ -11,6 +11,8 @@
 *************************************************/
 Vampire::Vampire()
 {
+	name = "Vampire";
+
 	// Attack Die
 	setNumAttackDie(1);
 	setDieSides(12);
@@ -33,26 +35,28 @@ Vampire::~Vampire()
 }
 
 /*************************************************
-* Description: Vampire's defend function. Vampire's
+* Description: Vampire's reduceStrength function. Vampire's
 * special ability charm is built into the function.
 * There is a 50% chance that no damage is done
 * to the Vampire.
 * Returns true if the defender survives and false
 * if they die.
 *************************************************/
-bool Vampire::defend(int damageIn)
+void Vampire::reduceStrength(int damageIn)
 {
-	// Vampire's Charm ability
+	// 50% chance for the Vampire not to take damage
 	if (rand() % 2 == 0)
 	{
-		return true;
+		damageIn -= getArmor();
+		setStrength(getStrength() - damageIn);
 	}
-	// If charm does not work
-	damageIn -= getArmor();
-	setStrength(getStrength() - damageIn);
-	if (getStrength() < 1)
-	{
-		return false;
-	}
-	return true;
+}
+
+
+/*************************************************
+* Description: Returns the classes name.
+*************************************************/
+string Vampire::getName()
+{
+	return name;
 }

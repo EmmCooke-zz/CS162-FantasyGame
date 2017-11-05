@@ -4,6 +4,10 @@
 * Description: This file contains the definitions
 * for the functions declared in the HarryPotter class.
 *************************************************/
+#include <iostream>
+using std::cout;
+using std::endl;
+
 #include "HarryPotter.hpp"
 
 /*************************************************
@@ -11,6 +15,8 @@
 *************************************************/
 HarryPotter::HarryPotter()
 {
+	name = "Harry Potter";
+
 	// Attack Die
 	setNumAttackDie(2);
 	setDieSides(6);
@@ -26,30 +32,37 @@ HarryPotter::HarryPotter()
 }
 
 /*************************************************
-* Description: 
+* Description: Destructor.
 *************************************************/
 HarryPotter::~HarryPotter()
 {
 }
 
 /*************************************************
-* Description: HarryPotter's defend function. Returns
-* true if the defender survives and false if they
-* die.
+* Description: Harry's reduceStrength function.
+* If Harry dies, he returns with double the strength.
 *************************************************/
-bool HarryPotter::defend(int damageIn)
+void HarryPotter::reduceStrength(int damageIn)
 {
 	damageIn -= getArmor();
 	setStrength(getStrength() - damageIn);
+	// Harry's special ability
 	if (getStrength() < 1)
-	{	// Harry's special ability
+	{
 		if (hogwarts)
 		{
+			cout << "Harry has died, but his time is not up!";
+			cout << " He revives at twice the strength!" << endl;
 			setStrength(20);
 			hogwarts = false;
-			return true;
 		}
-		return false;
 	}
-	return true;
+}
+
+/*************************************************
+* Description: Returns the classes name.
+*************************************************/
+string HarryPotter::getName()
+{
+	return name;
 }

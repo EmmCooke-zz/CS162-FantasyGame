@@ -16,6 +16,9 @@ public:
 	Barbarian();
 	// Destructor
 	~Barbarian();
+
+	// Pure virtual function from Character
+	virtual string getName();
 };
 
 #endif

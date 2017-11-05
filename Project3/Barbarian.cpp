@@ -11,6 +11,8 @@
 *************************************************/
 Barbarian::Barbarian()
 {
+	name = "Barbarian";
+
 	// Attack Die
 	setNumAttackDie(2);
 	setDieSides(6);
@@ -30,4 +32,12 @@ Barbarian::Barbarian()
 *************************************************/
 Barbarian::~Barbarian()
 {
+}
+
+/*************************************************
+* Description: Returns the classes name.
+*************************************************/
+string Barbarian::getName()
+{
+	return name;
 }

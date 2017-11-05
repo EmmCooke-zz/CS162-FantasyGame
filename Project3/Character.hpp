@@ -6,12 +6,18 @@
 *************************************************/
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
+#include <string>
+using std::string;
 
 #include <cstdlib> // for rand()
 
 class Character
 {
+protected:
+	string name;
+
 private:
+	
 	// attack
 	int numAttackDie;
 	int dieSides;
@@ -41,9 +47,13 @@ public:
 	void setArmor(int armorIn) { armor = armorIn; }
 	void setStrength(int strengthIn) { strength = strengthIn; }
 
+	bool alive();
+
 	// Virual functions to be overriden
+	virtual void reduceStrength(int damageIn);
 	virtual int attack();
-	virtual bool defend(int damageIn);
+	virtual int defend();
+	virtual string getName() = 0;
 };
 
 #endif

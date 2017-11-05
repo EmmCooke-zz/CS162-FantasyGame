@@ -4,6 +4,11 @@
 * Description: This file contains the definitions
 * for the functions declared in the BlueMan class.
 *************************************************/
+#include <iostream>
+using std::cout;
+using std::endl;
+
+
 #include "BlueMen.hpp"
 
 /*************************************************
@@ -11,6 +16,8 @@
 *************************************************/
 BlueMen::BlueMen()
 {
+	name = "Blue Men";
+
 	// Attack Die
 	setNumAttackDie(2);
 	setDieSides(10);
@@ -33,20 +40,27 @@ BlueMen::~BlueMen()
 }
 
 /*************************************************
-* Description: Barbarian's defend function. Returns
-* true if the defender survives and false if they
-* die.
+* Description: Reduces the strength of the class.
+* If the BlueMan's strength drops by four, they 
+* lose a die.
 *************************************************/
-bool BlueMen::defend(int damageIn)
+void BlueMen::reduceStrength(int damageIn)
 {
 	damageIn -= getArmor();
 	setStrength(getStrength() - damageIn);
+	if (damageIn >= 4)
+	{
+		cout << "A Blue Man has died!" << endl;
+	}
 	// BlueMen's special ability is Mob
 	// If their strength is reduced by 4, they lose a die
 	setNumDefenseDie(getStrength() / 4);
-	if (getStrength() < 1)
-	{
-		return false;
-	}
-	return true;
+}
+
+/*************************************************
+* Description: Returns the classes name.
+*************************************************/
+string BlueMen::getName()
+{
+	return name;
 }

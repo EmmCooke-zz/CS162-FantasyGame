@@ -97,7 +97,7 @@ void getNum(int &numIn)
 	int num;
 	do
 	{
-		cout << "Please enter an integer: ";
+		//cout << "Please enter an integer: ";
 		getline(cin, validateInput);
 		if (validateInput[0] == '-')	// If the number entered is negative
 		{	// This turns it negative

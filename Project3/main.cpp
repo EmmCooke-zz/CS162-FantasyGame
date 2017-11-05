@@ -11,6 +11,7 @@ using std::endl;
 
 #include "Menu.hpp"
 #include "validateInput.hpp"
+#include "FantasyGame.hpp"
 
 int main()
 {
@@ -21,6 +22,7 @@ int main()
 	bool exitChoice = false;
 	string validateInput;
 	int menuChoice;
+	FantasyGame game;
 	mainMenu.printPrompt();
 
 	do
@@ -31,7 +33,10 @@ int main()
 
 		switch (menuChoice)
 		{
-		case 1: // Play game
+		case 1: // Run the game
+			cout << endl << endl;
+			game.runGame();
+			exitChoice = true;
 			break;
 		case 2: // Exit
 			exitChoice = true;

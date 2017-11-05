@@ -12,10 +12,26 @@ using std::shared_ptr;
 class FantasyGame
 {
 private:
-	shared_ptr<Character> fighter1;
-	shared_ptr<Character> fighter2;
+	Character * fighter1 = nullptr;
+	Character * fighter2 = nullptr;
 public:
+	// Default Constructor
 	FantasyGame();
+	// Destructor
 	~FantasyGame();
+
+	// Getters
+	Character * getFighter1() const { return fighter1; }
+	Character * getFighter2() const { return fighter2; }
+
+	// Setters
+	void setFighter1(int fighterIn);
+	void setFighter2(int fighterIn);
+
+	// Run the game function
+	void runGame();
+	int printHeroes(int heroNum);
+	void printStats(Character * attacker, int attackRoll,
+					Character * defender, int defendRoll);
 };
 
