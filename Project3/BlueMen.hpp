@@ -1,7 +1,8 @@
 /*************************************************
 * Author: Emmet Cooke
 * Date: 11/3/2017
-* Description:
+* Description: This is the header file for the
+* BlueMen class. 
 *************************************************/
 #ifndef BLUE_MEN_HPP
 #define BLUE_MEN_HPP
@@ -11,8 +12,14 @@ class BlueMen :
 	public Character
 {
 public:
+	// Default Constructor
 	BlueMen();
+	// Destructor
 	~BlueMen();
+
+	// Virtual functions overriden from Character
+	virtual int attack();
+	virtual bool defend(int damageIn);
 };
 
 #endif
