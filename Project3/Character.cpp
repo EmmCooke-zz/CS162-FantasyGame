@@ -41,8 +41,11 @@ int Character::attack()
 *************************************************/
 void Character::reduceStrength(int damageIn)
 {
-	damageIn -= getArmor();
-	setStrength(getStrength() - damageIn);
+	if (damageIn > 0)
+	{
+		damageIn -= getArmor();
+		setStrength(getStrength() - damageIn);
+	}
 }
 
 /*************************************************

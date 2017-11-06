@@ -46,5 +46,6 @@ int main()
 		}
 	} while (!exitChoice);
 
+	cout << "Thank you for playing Fantasy Fighter!" << endl;
 	return 0;
 }

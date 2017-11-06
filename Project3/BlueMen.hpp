@@ -11,6 +11,8 @@
 class BlueMen :
 	public Character
 {
+private:
+	int cummulativeDamage = 0;
 public:
 	// Default Constructor
 	BlueMen();

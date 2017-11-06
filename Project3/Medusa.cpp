@@ -4,8 +4,12 @@
 * Description: This file contains the definitions
 * for the functions declared in the Medusa class.
 *************************************************/
-#include "Medusa.hpp"
 #include <iostream>
+using std::cout;
+using std::endl;
+
+#include "Medusa.hpp"
+
 
 /*************************************************
 * Description: Default Constructor.
@@ -51,6 +55,7 @@ int Medusa::attack()
 		// 50 damage is enough to overpower anyone
 		if (attackRoll == 12)
 		{
+			cout << "Medusa uses Glare! It's super effective!" << endl;
 			return 50;
 		}
 	}

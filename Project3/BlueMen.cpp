@@ -46,15 +46,19 @@ BlueMen::~BlueMen()
 *************************************************/
 void BlueMen::reduceStrength(int damageIn)
 {
-	damageIn -= getArmor();
-	setStrength(getStrength() - damageIn);
-	if (damageIn >= 4)
+	if (damageIn > 0)
 	{
-		cout << "A Blue Man has died!" << endl;
+		damageIn -= getArmor();
+		cummulativeDamage += damageIn;
+		setStrength(getStrength() - damageIn);
+		if (cummulativeDamage >= 4)
+		{
+			cout << "A Blue Man has died!" << endl;
+		}
+		// BlueMen's special ability is Mob
+		// If their strength is reduced by 4, they lose a die
+		setNumDefenseDie(getStrength() / 4);
 	}
-	// BlueMen's special ability is Mob
-	// If their strength is reduced by 4, they lose a die
-	setNumDefenseDie(getStrength() / 4);
 }
 
 /*************************************************

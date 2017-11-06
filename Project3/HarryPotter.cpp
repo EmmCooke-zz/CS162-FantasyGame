@@ -44,17 +44,20 @@ HarryPotter::~HarryPotter()
 *************************************************/
 void HarryPotter::reduceStrength(int damageIn)
 {
-	damageIn -= getArmor();
-	setStrength(getStrength() - damageIn);
-	// Harry's special ability
-	if (getStrength() < 1)
+	if (damageIn > 0)
 	{
-		if (hogwarts)
+		damageIn -= getArmor();
+		setStrength(getStrength() - damageIn);
+		// Harry's special ability
+		if (getStrength() < 1)
 		{
-			cout << "Harry has died, but his time is not up!";
-			cout << " He revives at twice the strength!" << endl;
-			setStrength(20);
-			hogwarts = false;
+			if (hogwarts)
+			{
+				cout << "Harry has died, but his time is not up!";
+				cout << " He revives at twice the strength!" << endl;
+				setStrength(20);
+				hogwarts = false;
+			}
 		}
 	}
 }

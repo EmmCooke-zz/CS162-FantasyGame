@@ -4,6 +4,10 @@
 * Description: This file contains the definitions
 * for the functions declared in the Vampire class.
 *************************************************/
+#include <iostream>
+using std::cout;
+using std::endl;
+
 #include "Vampire.hpp"
 
 /*************************************************
@@ -44,11 +48,18 @@ Vampire::~Vampire()
 *************************************************/
 void Vampire::reduceStrength(int damageIn)
 {
-	// 50% chance for the Vampire not to take damage
-	if (rand() % 2 == 0)
+	if (damageIn > 0)
 	{
-		damageIn -= getArmor();
-		setStrength(getStrength() - damageIn);
+		// 50% chance for the Vampire not to take damage
+		if (rand() % 2 == 0)
+		{
+			damageIn -= getArmor();
+			setStrength(getStrength() - damageIn);
+		}
+		else
+		{
+			cout << "Vampire uses Charm! He takes no damage!" << endl;
+		}
 	}
 }
 
